@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 class Winter extends Component {
-  render() {
+  render() {   
     return (
       <div className="wrapper winter">
 
