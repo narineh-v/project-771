@@ -33,20 +33,31 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
-    animation: fadein 6s;
-    -webkit-transition: opacity 3s ease-in 2s;
-    transition: opacity 3s ease-in 2s;
+    -webkit-animation: fadein 7s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+    animation: fadein 7s;
+    -webkit-transition: background-image 7s ease-in;
+    transition: background-image 7s ease-in;
 }
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  0% { opacity: 0; }
+  100%   { opacity: 1; }
+  // 0%, 100% {
+  //   opacity: 0;
+  // }
+  // 80% {
+  //   opacity: 0.1;
+  // }
+  // 50% { opacity: 1; }
+    // 0% { opacity: 0; }
+    // 100%   { opacity: 1; }
 }
 /* Firefox < 16 */
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+  // 0%,100% { opacity: 0; }
+  // 50% { opacity: 1; }
+    // from { opacity: 0; }
+    // to   { opacity: 1; }
 }
 /* Internet Explorer */
 /* Opera < 12.1 */
@@ -102,6 +113,41 @@ body {
     position: 100% 100%;
     size: 100% 100%;
   }
+  -webkit-transition: background-image 7s ease-in;
+  transition: background-image 7s ease-in;
+  // -webkit-transition: all 5s ease-in, all 1s ease-out;
+  // transition: all 5s ease-in, all 1s ease-out;
+  // -webkit-animation: fadeBg 7s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+  // animation: fadeBg 7s;
+
+  @keyframes fadeBg {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    50% { opacity: 1; }
+      // from { opacity: 0; }
+      // to   { opacity: 1; }
+  }
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  @-webkit-keyframes fadeBg {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    50% { opacity: 1; }
+      // from { opacity: 0; }
+      // to   { opacity: 1; }
+  }
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+
+
   &.winter {
     background-image: url(./../assets/img/background/bg-winter.png);
   }
@@ -110,6 +156,8 @@ body {
   }
   &.summer {
     background-image: url(./../assets/img/background/bg-summer.png);
+    // -webkit-transition: all 7s ease-in, all 1s ease-out;
+    // transition: all 7s ease-in, all 1s ease-out;
   }
   &.autumn {
     background-image: url(./../assets/img/background/bg-autumn.jpg);

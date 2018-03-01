@@ -20,7 +20,7 @@ const history = createHistory(this.props);
 class App extends Component {
   state = {
     components: [
-      {path: '/season', name: Season},
+      {path: '/', name: Season},
       {path: '/season/test', name: Spring}
       // {path: '/summer', name: Summer},
       // {path: '/autumn', name: Autumn}

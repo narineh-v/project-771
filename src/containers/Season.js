@@ -18,7 +18,6 @@ class Season extends Component {
 
   componentWillMount(){
     this._setInterval = setInterval(()=>{
-      console.log(this.state.season);
       if(this.state.season < 4){
         let temp = this.state.season;
         temp++;
