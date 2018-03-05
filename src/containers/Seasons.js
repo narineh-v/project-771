@@ -100,7 +100,7 @@ class Seasons extends Component {
             // </CSSTransitionGroup>
           }
          })}
-         <audio className = "audioTag" autoPlay >
+         <audio className = "audioTag" autoPlay loop>
            <source src={require("../assets/sounds/ocean-sound.mp3")} type=""/>
          Your browser does not support the audio element.
          </audio>
