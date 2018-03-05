@@ -21,11 +21,8 @@ body {
     position: 50% 50%;
     size: 100% 100%;
   }
-
     display: -webkit-box;
-
     display: -ms-flexbox;
-
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -33,12 +30,19 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+<<<<<<< HEAD
     -webkit-animation: fadein 7s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
     animation: fadein 7s;
     -webkit-transition: background-image 7s ease-in;
     transition: background-image 7s ease-in;
+=======
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
+    animation: fadein 3s;
+>>>>>>> e4d41733d9af305e0b2eea997603f4490d6f13db
 }
+
 @keyframes fadein {
+<<<<<<< HEAD
   0% { opacity: 0; }
   //80% {opacity: 0.9}
   100%   { opacity: 0.8; }
@@ -51,17 +55,50 @@ body {
   // 50% { opacity: 1; }
     // 0% { opacity: 0; }
     // 100%   { opacity: 1; }
+=======
+  0% { opacity: 0.4}
+  40% {opacity: 0.6}
+  50% {opacity: 0.7}
+  70% { opacity: 1}
+>>>>>>> e4d41733d9af305e0b2eea997603f4490d6f13db
 }
 /* Firefox < 16 */
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
+<<<<<<< HEAD
   // 0%,100% { opacity: 0; }
   // 50% { opacity: 1; }
     // from { opacity: 0; }
     // to   { opacity: 1; }
+=======
+  0% { opacity: 0.4}
+  40% {opacity: 0.6}
+  50% {opacity: 0.7}
+  70% { opacity: 1}
 }
-/* Internet Explorer */
-/* Opera < 12.1 */
+
+.fadeOut {
+  animation: fadeOut 4s ease-in;
+   -webkit-animation: fadeOut 4s ease-in;
+   transition-delay: 3s;
+}
+
+@keyframes fadeOut {
+  70% {opacity: 1}
+  50% {opacity: 0.7}
+  40% {opacity: 0.6}
+  0%   { opacity: 0.4}
+}
+/* Firefox < 16 */
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeOut {
+  70% {opacity: 1}
+  50% {opacity: 0.7}
+  40% {opacity: 0.6}
+  0%   { opacity: 0.4}
+>>>>>>> e4d41733d9af305e0b2eea997603f4490d6f13db
+}
+
 .foreground-image {
   width: 100%;
   height: auto;
@@ -113,7 +150,9 @@ body {
   background: {
     position: 100% 100%;
     size: 100% 100%;
+  //  transition: background-image 5s ease-in;
   }
+<<<<<<< HEAD
   -webkit-transition: background-image 7s ease-in;
   transition: background-image 7s ease-in;
   // -webkit-transition: all 5s ease-in, all 1s ease-out;
@@ -148,6 +187,11 @@ body {
   /* Internet Explorer */
   /* Opera < 12.1 */
 
+=======
+  position: absolute;
+  width: 100%;
+  height: 100%;
+>>>>>>> e4d41733d9af305e0b2eea997603f4490d6f13db
 
   &.winter {
     background-image: url(./../assets/img/background/bg-winter.png);
@@ -169,4 +213,13 @@ body {
   .content {
     background-size: 100% auto;
   }
+}
+
+
+.audioplayer {
+  height: 50px;
+    width: 50px;
+    background: black;
+    /* z-index: 1000; */
+    position: relative;
 }
