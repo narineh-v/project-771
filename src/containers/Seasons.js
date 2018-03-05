@@ -1,7 +1,7 @@
 import React , {Component}  from 'react';
 //import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 //import { CSSTransitionGroup } from 'react-transition-group'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './App.scss';
 
 // Components
@@ -37,7 +37,7 @@ class Seasons extends Component {
           count: 0
         });
       }
-    },7000);
+    }, 8500);
   }
 
   componentWillUnmount(){
@@ -69,11 +69,7 @@ class Seasons extends Component {
             let showSeason = this.state.showSeason;
             let prevIndex = index == 0 ? 3 : index - 1;
             let seas = this.state.seasons[prevIndex];
-            // var previous=array[i==0?array.length-1:i-1];
-            // var current=array[i];
-            // var next=array[i==array.length-1?0:i+1];
-            // prevIndex = array[i==0?array.length-1:i-1];
-            //console.log(index);
+
             if(index == this.state.count) {
 
               // <CSSTransitionGroup
@@ -100,8 +96,10 @@ class Seasons extends Component {
             // </CSSTransitionGroup>
           }
          })}
+
          <audio className = "audioTag" autoPlay loop>
            <source src={require("../assets/sounds/ocean-sound.mp3")} type=""/>
+
          Your browser does not support the audio element.
          </audio>
        </div>
