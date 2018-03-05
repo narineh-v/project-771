@@ -10,6 +10,7 @@ import './App.scss';
 // Components
 
 import Seasons from './Seasons';
+import SeasonV from '../components/SeasonV';
 
 
 //const history = createBrowserHistory();
@@ -17,7 +18,8 @@ const history = createHistory(this.props);
 class App extends Component {
   state = {
     components: [
-      {path: '/', name: Seasons}
+      {path: '/', name: Seasons},
+      {path: '/test', name: SeasonV}
     ]
   }
 
