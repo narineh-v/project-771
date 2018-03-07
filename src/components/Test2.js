@@ -1,75 +1,103 @@
 import React, {Component}  from 'react';
 
-import './../containers/App.scss';
+// import './../containers/Test2.scss';
 
-class SeasonV extends Component {
+let foregroundImage = document.getElementsByClassName('foreground-image');
+
+class Test2 extends Component {
 
     state = {
         step: 0,
         count: 0,
         showSeason: false,
         seasons: ['autumn', 'winter', 'spring', 'summer'],
+        hs : ['myFadeIn','myFadeOut','myFadeOut','myFadeOut'],
+        step:0,
         songs: [],
         playing: true,
+        width: window.innerWidth,
+        height: window.innerHeight
     };
 
-    componentDidMount() {
-        //var audio =  new Audio();
-        //audio.src = "../assets/sounds/ocean-sound.mp3"
+
+    updateDimensions() {
+      this.setState({
+          width: window.innerWidth,
+          height: window.innerHeight
+      });
+      console.log(this.state.width);
+      // [...foregroundImage].map((el,i)=>{
+      //   el.width = this.state.width;
+      // });
     }
 
     componentWillMount() {
+      //var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      //var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      () => this.updateDimensions();
+      //var W = window.innerWidth
+
+    }
+    componentDidMount() {
+      window.addEventListener("resize", () => this.updateDimensions());
+      window.addEventListener("zoom", () => {console.log('yeah')});
+
+      // [...foregroundImage].map((el,i)=>{
+      //   el.width = this.state.width;
+      // });
+      console.log(foregroundImage)
+
+
+
         this._setInterval = setInterval(() => {
-            let prev  = this.state.step;
+            let step = this.state.step;
+            let classes = this.state.hs;
+            console.log(step);
             if (this.state.step < 3) {
-                let temp = this.state.step;
-                temp++;
+                step++;
+                classes[step] = 'myFadeIn';
+                classes[step - 1] = 'myFadeOut';
                 this.setState({
-                    step: temp,
+                    step: step,
                 });
             }
             else {
+                classes[0] = 'myFadeIn';
+                classes[3] = 'myFadeOut';
                 this.setState({
                     step: 0,
                 });
             }
-            let current = this.state.step;
-            let op = 0;
-            let opTimer = setInterval(() => {
-                op += 1/350;
-                this.refs[ "season_" + current].style.opacity = (op)   <= 1 ? op : 1;
-                this.refs[ "season_" + prev].style.opacity = (1 - op) <= 0.0 ? 0 :(1 - op);
-                if(op >= 1){
-                    clearInterval(opTimer);
-                }
-            },7);
 
-            /*if (this.state.count < 3) {
-                let temp = this.state.count;
-                temp++;
-                this.setState({
-                    count: temp,
-                });
-            }
-            else {
-                this.setState({
-                    count: 0,
-                });
-            }*/
-        }, 7000);
+            /*setTimeout(()=>{
+             this.setState({
+             class: 'myFadeOut'
+             });
+             setTimeout(()=>{
+             this.setState({
+             class: 'myFadeIn'
+             });
+             },5000);
+             },1000);*/
+
+            //var audio =  new Audio();
+            //audio.src = "../assets/sounds/ocean-sound.mp3"
+        },7000);
     }
 
     componentWillUnmount() {
         clearInterval(this._setInterval);
+        window.removeEventListener("resize", () => this.updateDimensions());
     }
 
     togglePlay = (event) => {
         let audio = document.getElementsByClassName('audioTag')[0];
+
         //let audio = this.state.audio;
         let playing = this.state.playing;
         console.log(audio);
 
-        if (playing === true) {
+        if (playing == true) {
             console.log('pause');
             audio.pause();
         }
@@ -82,20 +110,31 @@ class SeasonV extends Component {
 
     };
 
+
+
     render() {
+      // [...foregroundImage].map((el,i) => {
+      //   el.width = this.state.width;
+      // });
         return (
             <div>
                 {this.state.seasons.map((season, index) => {
+                  let bgStyles = {
+                    backgroundImage: `url(${require(`../assets/img/${season}/foreground.png`)})`
+                  }
+
                     return (
-                        <div key={index} ref={ "season_" + index } className={ "class_season" + index }>
-                            <div className={['wrapper'].join(' ')}>
+
+                            <div key={index} className={['wrapper' , season , this.state.hs[index] ].join(' ')}>
 
                                 {/*----------- Content -----------*/}
                                 <div className="content">
-                                    <div className="main-container">
+                                    <div className="main-container"  >
                                         <img src={require(`../assets/img/${season}/foreground.png`)}
                                              className="foreground-image"
-                                             alt="foreground"/>
+                                             alt="foreground"
+
+                                             />
                                         {/*----------- Boy -----------*/}
                                         <div className="boy">
                                             <a href="https://www.facebook.com/"
@@ -116,12 +155,16 @@ class SeasonV extends Component {
                                 </div>
                                 {/*----------- Content End -----------*/}
                             </div>
-                        </div>
+
                     );
                 })}
+                <audio className = "audioTag" autoPlay loop>
+                    <source src={require("../assets/sounds/ocean_sound.mp3")} type=""/>
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         );
     };
 }
 
-export default SeasonV;
+export default Test2;

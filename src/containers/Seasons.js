@@ -24,8 +24,8 @@ class Seasons extends Component {
   }
   componentWillMount() {
     this._setInterval = setInterval(() => {
-      //console.log(this.state.count);
-      if(this.state.count < 3){
+      console.log(this.state.count);
+      if(this.state.count < 4){
         let temp = this.state.count;
         temp++;
         this.setState({
@@ -34,10 +34,10 @@ class Seasons extends Component {
       }
       else{
         this.setState({
-          count: 0
+          count: 1
         });
       }
-    }, 8500);
+    }, 8000);
   }
 
   componentWillUnmount(){
@@ -67,10 +67,10 @@ class Seasons extends Component {
       <div>
           {this.state.seasons.map((season, index) => {
             let showSeason = this.state.showSeason;
-            let prevIndex = index == 0 ? 3 : index - 1;
+            let prevIndex = index == 1 ? 3 : index - 1;
             let seas = this.state.seasons[prevIndex];
-
-            if(index == this.state.count) {
+            index = index + 1;
+            if(index) {
 
               // <CSSTransitionGroup
               //   transitionName="example"
@@ -88,7 +88,6 @@ class Seasons extends Component {
               //   transitionLeaveTimeout={2000}
               //   key = {index}>
               <div key = {index} >
-                <Season key = {prevIndex} name = {seas}  className = {!this.state.showSeason ? "fadeOut": ''} togglePlay = {this.togglePlay}/>
                 <Season key = {index} name = {season} showSeason = {!this.state.showSeason} togglePlay = {this.togglePlay}/>
               </div>
               // </CSSTransitionGroup>
@@ -96,7 +95,7 @@ class Seasons extends Component {
             // </CSSTransitionGroup>
           }
          })}
-         <audio className = "audioTag" autoPlay >
+         <audio className = "audioTag"  autoPlay loop>
            <source src={require("../assets/sounds/ocean_sound.mp3")} type=""/>
          Your browser does not support the audio element.
          </audio>

@@ -11,6 +11,7 @@ import './App.scss';
 
 import Seasons from './Seasons';
 import SeasonV from '../components/SeasonV';
+import Test2 from '../components/Test2';
 
 
 //const history = createBrowserHistory();
@@ -18,13 +19,11 @@ const history = createHistory(this.props);
 class App extends Component {
   state = {
     components: [
-      {path: '/', name: Seasons},
-      {path: '/test', name: SeasonV}
+      {path: '/', name: Test2},
+      {path: '/test', name: SeasonV},
+      {path: '/Test2', name: Test2}
     ]
-  }
-
-
-
+  };
 
   componentDidMount() {
     //setInterval(Timer, 7000);
