@@ -1,7 +1,7 @@
 import React , {Component}  from 'react';
 //import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 //import { CSSTransitionGroup } from 'react-transition-group'
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+//import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import './App.scss';
 
 // Components
@@ -9,40 +9,73 @@ import Season from '../components/Season';
 
 
 class Seasons extends Component {
-
-    state = {
-      count: 0,
+  constructor(props) {
+      super(props);
+      this.state = {
+      step: 0,
       showSeason: false,
-      seasons: ['autumn', 'winter', 'spring', 'summer'],
-      songs: [],
-      playing: true
+      seasons: ['winter', 'spring', 'summer', 'autumn'],
+      playing: true,
+      currentClass: 'fadeIn',
+      classes: ['fadeIn', 'fadeOut']
     };
-
-  componentDidMount() {
-    //var audio =  new Audio();
-    //audio.src = "../assets/sounds/ocean-sound.mp3"
   }
+
   componentWillMount() {
-    this._setInterval = setInterval(() => {
-      console.log(this.state.count);
-      if(this.state.count < 4){
-        let temp = this.state.count;
-        temp++;
-        this.setState({
-          count: temp
-        });
-      }
-      else{
-        this.setState({
-          count: 1
-        });
-      }
-    }, 8000);
-  }
 
-  componentWillUnmount(){
-    clearInterval(this._setInterval);
-  }
+    this._setInterval = setInterval(() => {
+      setTimeout(() => {
+        this.setState({
+        showSeason: !this.state.showSeason
+        });
+      },3500);
+
+      console.log(this.state.showSeason)
+      setTimeout(() => {
+      this.setState({
+        //currentClass: this.state.showSeason == true ? 'fadeIn' : 'fadeOut'
+      });
+    },7000);
+     let step = this.state.step;
+
+      if(this.state.step < 3){
+        step++;
+        if(this.state.seasons[step]){
+          this.setState({
+            currentClass: 'fadeIn'
+          });
+        }
+        if(this.state.seasons[step - 1]){
+          this.setState({
+            currentClass: 'fadeOut'
+          });
+        }
+        console.log(this.state.seasons[step - 1]);
+        //this.state.seasons[step - 1] = 'myFadeOut';
+        this.setState({
+          step: step
+        });
+      }
+      else {
+        this.setState({
+          step: 0
+        });
+      }
+console.log(this.state.step)
+    }, 7000);
+
+
+
+  };
+
+
+
+
+componentWillUnmount(){
+  clearInterval(this._setInterval);
+}
+
+
 
 
   togglePlay = (event) => {
@@ -63,40 +96,52 @@ class Seasons extends Component {
   }
 
   render() {
+    let seasons = (
+      <div>
+        {this.state.seasons.map((season, index) => {
+          let showSeason = this.state.showSeason;
+          let prevIndex = index == 0 ? 3 : index - 1;
+          let nextIndex = index == 3 ? 0 : index + 1;
+          let seas = this.state.seasons[prevIndex];
+          let seas2 = this.state.seasons[nextIndex];
+          if(true) {
+
+            // <CSSTransitionGroup
+            //   transitionName="example"
+            //   transitionEnterTimeout={500}
+            //   transitionLeaveTimeout={300}>
+
+
+          return (
+            // <CSSTransitionGroup
+            //   in = "true"
+            //   transitionName="fade"
+            //   transitionAppear={true}
+            //   transitionAppearTimeout={2000}
+            //   transitionEnterTimeout={1000}
+            //   transitionLeaveTimeout={2000}
+            //   key = {index}>
+            <div key = {index} >
+
+              <Season key = {index} name = {season} togglePlay = {this.togglePlay} classSeason = {index == this.state.step ? this.state.currentClass : ''}>
+              </Season>
+
+            </div>
+             // </CSSTransitionGroup>
+          );
+          // </CSSTransitionGroup>
+        }
+       })}
+      </div>
+    )
     return (
       <div>
-          {this.state.seasons.map((season, index) => {
-            let showSeason = this.state.showSeason;
-            let prevIndex = index == 1 ? 3 : index - 1;
-            let seas = this.state.seasons[prevIndex];
-            index = index + 1;
-            if(index) {
 
-              // <CSSTransitionGroup
-              //   transitionName="example"
-              //   transitionEnterTimeout={500}
-              //   transitionLeaveTimeout={300}>
+      {seasons}
 
-
-            return (
-              // <CSSTransitionGroup
-              //   in = "true"
-              //   transitionName="fade"
-              //   transitionAppear={true}
-              //   transitionAppearTimeout={2000}
-              //   transitionEnterTimeout={1000}
-              //   transitionLeaveTimeout={2000}
-              //   key = {index}>
-              <div key = {index} >
-                <Season key = {index} name = {season} showSeason = {!this.state.showSeason} togglePlay = {this.togglePlay}/>
-              </div>
-              // </CSSTransitionGroup>
-            );
-            // </CSSTransitionGroup>
-          }
-         })}
-         <audio className = "audioTag"  autoPlay loop>
+         <audio className = "audioTag"  loop>
            <source src={require("../assets/sounds/ocean_sound.mp3")} type=""/>
+
          Your browser does not support the audio element.
          </audio>
        </div>

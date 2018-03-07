@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Season extends Component {
   render() {
     return (
-      <div className={["wrapper", this.props.name].join(' ')}>
+      <div className={["wrapper", this.props.name, this.props.classSeason].join(' ')}>
 
       	{/*----------- Content -----------*/}
     		<div className= "content">
