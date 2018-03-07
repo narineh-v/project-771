@@ -108,186 +108,47 @@ body {
   }
   position: absolute;
   width: 100%;
-  transition: all 3.5s;
+  opacity: 0;
 
-
-.fadeout{
-  animation: fadeout 3.5s ease-in-out;
-}
-  @keyframes fadeout {
-    from{opacity: 1;}
-    to{opacity: 0;}
+  &.fadeOut{
+    transition: 3.5s ease-in-out;
+    opacity: 0 !important;
+    visibility: hidden;
   }
 
-  .fadein {
-    animation: fadein 3.5s ease-in;
-    //animation-delay: 3.5s;
+  &.fadeIn {
+    transition: 3.5s ease-in-out;
+    opacity: 1 !important;
+    visibility: visible;
   }
 
-  @keyframes fadein {
-    from{opacity: 0;}
-    to{opacity: 1;}
-  }
-  // height: 100%;
-  // -webkit-animation: fadein 4s ease-in; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
-  // animation: fadein 4s ease-in;
-
-
-//   animation-name: fadeIn;
-// animation-timing-function: ease-in;
-// animation-iteration-count: infinite;
-// animation-duration: 6s;
-// animation-direction: alternate;
-
-
-
-  &.autumn {
-    // animation-name: fade;
-    // animation-duration: 8s;
-    //background-image: url(./../assets/img/background/bg-autumn.jpg);
-  }
   &.winter {
     // animation-name: fade2;
     // animation-duration: 8s;
-  //  background-image: url(./../assets/img/background/bg-winter.png);
+background-image: url(./../assets/img/background/bg-winter.png);
   }
   &.spring {
     // animation-name: fade3;
     // animation-duration: 8s;
-  //  background-image: url(./../assets/img/background/bg-spring.png);
+ background-image: url(./../assets/img/background/bg-spring.png);
   }
   &.summer {
     // animation-name: fade3;
     // animation-duration: 8s;
-  //  background-image: url(./../assets/img/background/bg-summer.png);
+ background-image: url(./../assets/img/background/bg-summer.png);
     // -webkit-transition: all 7s ease-in, all 1s ease-out;
     // transition: all 7s ease-in, all 1s ease-out;
   }
 
-}
-
-.fadeOut {
-// animation-name: fadeOut;
-// animation-timing-function: ease-in-out;
-// animation-iteration-count: infinite;
-// animation-duration: 5s;
-// animation-direction: alternate;
-
-
-  // animation: fadeOut 4s ease-out;
-  //  -webkit-animation: fadeOut 4s ease-out;
-
-  // animation: fadeOut 3.5s ease-out;
-  //  -webkit-animation: fadeOut 3.5s ease-out;
-  // animation: fadeOut 3.5s ease-out;
-  //  -webkit-animation: fadeOut 3.5s ease-out;
-
-}
-@keyframes fade
-{
-  0%   {opacity:1}
-  33.333% { opacity: 0}
-  66.666% { opacity: 0}
-  100% { opacity: 1}
-}
-@keyframes fade2
-{
-  0%   {opacity:0}
-  33.333% { opacity: 1}
-  66.666% { opacity: 0 }
-  100% { opacity: 0}
-}
-@keyframes fade3
-{
-  0%   {opacity:0}
-  33.333% { opacity: 0}
-  66.666% { opacity: 1}
-  100% { opacity: 0}
-}
-
-@keyframes fadeiin {
-  0% {
-  opacity:0.45;
-  }
-  45% {
-  opacity:0.5;
-  }
-  55% {
-  opacity:0.7;
-  }
-  100% {
-  opacity: 0.8;
-  }
-}
-@keyframes fadeIn {
-  // 0% { opacity: 0.55}
-  // 50% {opacity: 0.53}
-  // 60% {opacity: 0.5}
-
-
-  // 0% { opacity: 0.55}
-  // 50% {opacity: 0.57}
-  // 70% {opacity: 0.6}
-  0% {
-  opacity:0.5;
-  }
-  45% {
-  opacity:0.6;
-  }
-  55% {
-  opacity:0.8;
-  }
-  100% {
-  opacity:1;
+  &.autumn {
+    // animation-name: fade;
+    // animation-duration: 8s;
+background-image: url(./../assets/img/background/bg-autumn.jpg);
   }
 
-  // from{opacity: 0.5}
-  // to{opacity: 0.6}
 }
 
-@keyframes fadeOut {
-  // 0% {opacity: 0.65}
-  // 50% {opacity: 0.62}
-  // 60% {opacity: 0.6}
 
-// from {opacity: 1}
-// to {opacity: 0.53}
-
-  // 0% {opacity: 0.6}
-  // 50% {opacity: 0.57}
-  // 70% {opacity: 0.55}
-0% {
-opacity:1;
-}
-45% {
-opacity:0.8;
-}
-55% {
-opacity:0.6;
-}
-100% {
-opacity:0;
-}
-
-  // 0% {opacity: 0.7}
-  // 50% {opacity: 0.67}
-  // 70% {opacity: 0.65}
-
-
-  // 70% {opacity: 1}
-  // 50% {opacity: 0.7}
-  // 40% {opacity: 0.6}
-  //100%   { opacity: 0.55}
-}
-/* Firefox < 16 */
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeOut {
-  //0% {opacity: 0.6}
-  // 70% {opacity: 1}
-  // 50% {opacity: 0.7}
-  // 40% {opacity: 0.6}
-  //100%   { opacity: 0.55}
-}
 /************** Autumn End *************/
 @media (max-width: 1600px) {
   .content {

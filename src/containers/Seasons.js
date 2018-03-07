@@ -12,70 +12,59 @@ class Seasons extends Component {
   constructor(props) {
       super(props);
       this.state = {
-      count: 0,
+      step: 0,
       showSeason: false,
-      seasons: ['winter', 'autumn', 'spring', 'summer'],
-      songs: [],
-      playing: true
+      seasons: ['winter', 'spring', 'summer', 'autumn'],
+      playing: true,
+      currentClass: 'fadeIn',
+      classes: ['fadeIn', 'fadeOut']
     };
   }
 
-
-  componentDidMount() {
-    //var audio =  new Audio();
-    //audio.src = "../assets/sounds/ocean-sound.mp3"
-  }
-
-  fadeIn = () => {
-    //this.setState({showSeason: true})
-    console.log('fadein call');
-  //  window.setTimeout(this.fadeIn, 1000);
-  }
-
-  f = (index) => {
-    //console.log(index);
-    //this.setState({showSeason: true})
-  }
-
-
-  fadeOut = (index) => {
-    if(index == this.state.count){
-      //console.log(index)
-    }
-  }
-
   componentWillMount() {
+
     this._setInterval = setInterval(() => {
-      //console.log(this.state.count);
+      setTimeout(() => {
+        this.setState({
+        showSeason: !this.state.showSeason
+        });
+      },3500);
+
+      console.log(this.state.showSeason)
       setTimeout(() => {
       this.setState({
-        showSeason: !this.state.showSeason
+        //currentClass: this.state.showSeason == true ? 'fadeIn' : 'fadeOut'
       });
-    },3500);
-      console.log(this.state.showSeason)
-      if(this.state.count < 3){
-        let temp = this.state.count;
-        temp++;
+    },7000);
+     let step = this.state.step;
+
+      if(this.state.step < 3){
+        step++;
+        if(this.state.seasons[step]){
+          this.setState({
+            currentClass: 'fadeIn'
+          });
+        }
+        if(this.state.seasons[step - 1]){
+          this.setState({
+            currentClass: 'fadeOut'
+          });
+        }
+        console.log(this.state.seasons[step - 1]);
+        //this.state.seasons[step - 1] = 'myFadeOut';
         this.setState({
-          count: temp
+          step: step
         });
       }
-      else{
+      else {
         this.setState({
-          count: 0
+          step: 0
         });
       }
-    }, 8000);
+console.log(this.state.step)
+    }, 7000);
 
-    if(!this.fadeIn === null){
-      this.setState({ showSeason : false});
-      console.log(this.state.showSeason);
-    }
 
-    if(!this.fadeOut === null){
-      this.setState({ showSeason : true});
-      console.log(this.state.showSeason);
-    }
 
   };
 
@@ -114,8 +103,7 @@ componentWillUnmount(){
           let nextIndex = index == 3 ? 0 : index + 1;
           let seas = this.state.seasons[prevIndex];
           let seas2 = this.state.seasons[nextIndex];
-
-          if(index == this.state.count) {
+          if(true) {
 
             // <CSSTransitionGroup
             //   transitionName="example"
@@ -134,13 +122,9 @@ componentWillUnmount(){
             //   key = {index}>
             <div key = {index} >
 
-              <Season key = {index} name = {season} togglePlay = {this.togglePlay} classSeason = {this.state.showSeason == true ? 'show fadeout' : 'hide'}>
-               //{index == this.state.count ? this.fadeOut(index) : false}
-               //onCallback={(index) => this.fadeIn(index)}
+              <Season key = {index} name = {season} togglePlay = {this.togglePlay} classSeason = {index == this.state.step ? this.state.currentClass : ''}>
               </Season>
-              <Season key = {nextIndex} name = {seas2}  classSeason = {["fade", this.state.showSeason == false ? 'show' : 'hide fadein'].join(' ')} togglePlay = {this.togglePlay}>
-              //{index == this.state.count + 1 ? this.fadeIn() : false}
-              </Season>
+
             </div>
              // </CSSTransitionGroup>
           );
