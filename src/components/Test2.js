@@ -41,14 +41,6 @@ class Test2 extends Component {
     componentDidMount() {
       window.addEventListener("resize", () => this.updateDimensions());
       window.addEventListener("zoom", () => {console.log('yeah')});
-
-      // [...foregroundImage].map((el,i)=>{
-      //   el.width = this.state.width;
-      // });
-      console.log(foregroundImage)
-
-
-
         this._setInterval = setInterval(() => {
             let step = this.state.step;
             let classes = this.state.hs;
@@ -57,6 +49,9 @@ class Test2 extends Component {
                 step++;
                 classes[step] = 'myFadeIn';
                 classes[step - 1] = 'myFadeOut';
+                // setTimeout(function(){
+                //     classes[step - 1] = 'myFadeOut';
+                // },100);
                 this.setState({
                     step: step,
                 });
@@ -64,24 +59,13 @@ class Test2 extends Component {
             else {
                 classes[0] = 'myFadeIn';
                 classes[3] = 'myFadeOut';
+                // setTimeout(function(){
+                //     classes[3] = 'myFadeOut';
+                // },200);
                 this.setState({
                     step: 0,
                 });
             }
-
-            /*setTimeout(()=>{
-             this.setState({
-             class: 'myFadeOut'
-             });
-             setTimeout(()=>{
-             this.setState({
-             class: 'myFadeIn'
-             });
-             },5000);
-             },1000);*/
-
-            //var audio =  new Audio();
-            //audio.src = "../assets/sounds/ocean-sound.mp3"
         },7000);
     }
 

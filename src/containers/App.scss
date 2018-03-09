@@ -63,15 +63,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
   background-position: center center;
   background-size: 100% auto;
   max-width: 100%;
   overflow: hidden;
 
   img {
-      max-width: 500%;
-      width: 100%;
+      //max-width: 500%;
+    width: 100%;
   // -moz-transform: scale(1,1);
   // -webkit-transform: scale(1,1);
   // transform: scale(1,1);
@@ -114,12 +113,16 @@ body {
   }
   .plus-minus-icon {
     position: absolute;
-    height: 4%;
+    height: 5%;
     width: 2%;
-    bottom: 5%;
+    bottom: 4%;
     left: 4%;
+    cursor: pointer;
+
     img {
       height: 100%;
+      width: 100%;
+      opacity: 0;
     }
   }
 }
@@ -164,7 +167,7 @@ body {
   &.myFadeIn{
     visibility: visible;
     opacity: 1;
-    transition: opacity 3.5s linear;
+    transition: visibility 1s, opacity 2s linear;
   }
 
   &.autumn {
