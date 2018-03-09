@@ -162,12 +162,12 @@ body {
   &.myFadeOut{
     visibility: hidden;
     opacity: 0;
-    transition: visibility 15s, opacity 3.5s linear;
+    transition: visibility 6s, opacity 6s linear;
   }
   &.myFadeIn{
     visibility: visible;
     opacity: 1;
-    transition: visibility 1s, opacity 2s linear;
+    transition: opacity 2s linear;
   }
 
   &.autumn {
