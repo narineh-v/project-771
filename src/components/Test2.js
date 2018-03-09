@@ -29,7 +29,7 @@ class Test2 extends Component {
           width: window.innerWidth,
           height: window.innerHeight
       });
-      console.log(this.state.width);
+      //console.log(this.state.width);
       // [...foregroundImage].map((el,i)=>{
       //   el.width = this.state.width;
       // });
@@ -48,10 +48,7 @@ class Test2 extends Component {
             x: `50%`,
             y: 0
           })
-
           window.scrollTo(this.state.width/2, 0);
-
-      console.log('azz')
     }
 
     componentWillMount() {
@@ -60,7 +57,7 @@ class Test2 extends Component {
       () => this.updateDimensions();
       (e) => this.allowZoom(e);
       //var W = window.innerWidth
-//window.scrollTo(500, 50);
+      //window.scrollTo(500, 50);
     }
     componentDidMount() {
       window.addEventListener("resize", () => this.updateDimensions());
@@ -70,7 +67,7 @@ class Test2 extends Component {
         this._setInterval = setInterval(() => {
             let step = this.state.step;
             let classes = this.state.hs;
-            console.log(step);
+            //console.log(step);
             if (this.state.step < 3) {
                 step++;
                 classes[step] = 'myFadeIn';
@@ -105,14 +102,14 @@ class Test2 extends Component {
 
         //let audio = this.state.audio;
         let playing = this.state.playing;
-        console.log(audio);
+        //console.log(audio);
 
         if (playing == true) {
-            console.log('pause');
+            //console.log('pause');
             audio.pause();
         }
         else {
-            console.log('play');
+            //console.log('play');
             audio.play();
         }
         this.setState({playing: !playing});
