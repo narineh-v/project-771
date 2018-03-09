@@ -43,11 +43,13 @@ class Test2 extends Component {
 
           // update current
           this.setState({
-            zoom: oz < 2 ? nz : 3,
-            x: `50%`,
+            zoom: oz > 1 ? 1 : nz,
+            x: oz > 1 ? 0 : `50%`,
             y: 0
           })
-          window.scrollTo(this.state.width/2, 0);
+
+          this.state.zoom > 1 ? window.scrollTo(this.state.width/2, 0) : window.scrollTo(0, 0);
+
     }
 
     componentWillMount() {
@@ -66,7 +68,7 @@ class Test2 extends Component {
         this._setInterval = setInterval(() => {
             let step = this.state.step;
             let classes = this.state.hs;
-            //console.log(step);
+            console.log(step);
             if (this.state.step < 3) {
                 step++;
                 classes[step] = 'myFadeIn';
@@ -88,7 +90,7 @@ class Test2 extends Component {
                     step: 0,
                 });
             }
-        },7000);
+        },8000);
     }
 
     componentWillUnmount() {

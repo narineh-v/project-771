@@ -96,13 +96,17 @@ body {
     margin: auto;
   }
   a {
+    &:focus {
+      outline: none;
+    }
+    
     &.hair {
       display: block;
       height: 19%;
       width: 2%;
       border-radius: 60%;
       border-bottom-right-radius: 85%;
-      margin-left: 48.95%;
+      margin-left: 49%;
     }
     &.chair {
       display: block;
