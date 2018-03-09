@@ -88,7 +88,7 @@ class Test2 extends Component {
                     step: 0,
                 });
             }
-        },8000);
+        },7000);
     }
 
     componentWillUnmount() {
