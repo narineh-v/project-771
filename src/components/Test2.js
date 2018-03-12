@@ -130,7 +130,7 @@ class Test2 extends Component {
             <div>
                 {this.state.seasons.map((season, index) => {
                   let bgStyles = {
-                    backgroundImage: `url(${require(`../assets/img/${season}/foreground.png`)})`
+                    backgroundImage: `url(${require(`../assets/img/${season}/foreground.jpg`)})`
                   }
 
                   // let zoomStyles = {
@@ -152,7 +152,7 @@ class Test2 extends Component {
                                 {/*----------- Content -----------*/}
                                 <div className="content">
                                     <div className="main-container" style = {zoomStyles}>
-                                        <img src={require(`../assets/img/${season}/foreground.png`)}
+                                        <img src={require(`../assets/img/${season}/foreground.jpg`)}
                                              className="foreground-image"
                                              alt="foreground"
 
