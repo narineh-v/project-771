@@ -19,7 +19,8 @@ class Test2 extends Component {
         x: 0,
         y: 0,
         zoom: 1,
-        scrollLeft: 0
+        scrollLeft: 0,
+        isTouchDevice: false
     };
 
 
@@ -35,7 +36,12 @@ class Test2 extends Component {
     }
 
     allowZoom(e) {
-      var el = document.getElementsByClassName('main-container')[0];
+
+      if (this.state.isTouchDevice) {
+        return false; // prevent executing code
+      }
+
+      // /var el = document.getElementsByClassName('main-container')[0];
       var coef = e.shiftKey || e.ctrlKey ? 0.5 : 2,
           delm = document.documentElement,
           oz = this.state.zoom,
@@ -46,10 +52,24 @@ class Test2 extends Component {
             zoom: oz > 1 ? 1 : nz,
             x: oz > 1 ? 0 : `50%`,
             y: 0
-          })
+          });
 
           this.state.zoom > 1 ? window.scrollTo(this.state.width/2, 0) : window.scrollTo(0, 0);
+    }
 
+    touchZoom(e) {
+      console.log('touch')
+        this.setState({
+          isTouchDevice: true
+        });
+      //window.removeEventListener("dblclick", (e) => this.allowZoom(e));
+    }
+
+    isTouchDevice() {
+       var el = document.createElement('div');
+       el.setAttribute('ongesturestart', 'return;'); // or try "ontouchstart"
+       return typeof el.ongesturestart === "function";
+       console.log('yes')
     }
 
     componentWillMount() {
@@ -57,12 +77,27 @@ class Test2 extends Component {
       //var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       () => this.updateDimensions();
       (e) => this.allowZoom(e);
+
+    //(e) => this.touchZoom(e);
+      // if ("ontouchstart" in document.documentElement) {
+      //   this.setState({
+      //     isTouchDevice: true
+      //   });
+      //   console.log(this.state.isTouchDevice)
+      // }
+
       //var W = window.innerWidth
       //window.scrollTo(500, 50);
     }
     componentDidMount() {
       window.addEventListener("resize", () => this.updateDimensions());
       window.addEventListener("dblclick", (e) => this.allowZoom(e));
+      window.addEventListener("touchend", (e) => this.touchZoom(e));
+      // if ("ontouchstart" in document.documentElement) {
+      //  // return false;
+      //  console.log('no')
+      //  alert('hi')
+      // } else { window.addEventListener("dblclick", (e) => this.allowZoom(e));}
 
       window.scrollTo(500, 50);
         this._setInterval = setInterval(() => {
@@ -142,16 +177,20 @@ class Test2 extends Component {
                     transform: `translate(${this.state.x}, 0) scale(${this.state.zoom})`
                   };
 
+                  let zoomStyles2 = {
+                    transform: `translate(${this.state.x}, ${this.state.x}) scale(${this.state.zoom})`
+                  };
+
 
 
 
                     return (
 
-                            <div key={index} className={['wrapper' , season , this.state.hs[index] ].join(' ')}>
+                            <div key={index} className={['wrapper' , season , this.state.hs[index] ].join(' ')} style = {zoomStyles2}>
 
                                 {/*----------- Content -----------*/}
                                 <div className="content">
-                                    <div className="main-container" style = {zoomStyles}>
+                                    <div className="main-container"  >
                                         <img src={require(`../assets/img/${season}/foreground.jpg`)}
                                              className="foreground-image"
                                              alt="foreground"
