@@ -175,14 +175,27 @@ body {
 // animation-direction: alternate;
 
   &.myFadeOut{
-    visibility: hidden;
+    visibility: collapse;
     opacity: 0;
+    //display: none;
     transition: visibility 6s, opacity 6s linear;
   }
   &.myFadeIn{
     visibility: visible;
     opacity: 1;
-    transition: opacity 2s linear;
+    transition:  opacity 2s linear;
+  }
+
+  &.myFadeOut2{
+    visibility: collapse;
+    opacity: 0;
+    transition: visibility 2s, opacity 2s ease-in;
+  }
+
+  &.myFadeIn2{
+    visibility: visible;
+    opacity: 1;
+    transition:  opacity 1.5s ease-out;
   }
 
   &.autumn {
