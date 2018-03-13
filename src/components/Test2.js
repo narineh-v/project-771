@@ -10,6 +10,7 @@ class Test2 extends Component {
         step: 0,
         count: 0,
         showSeason: false,
+        // seasons: ['autumn', 'winter', 'spring', 'summer'],
         seasons: ['autumn', 'winter', 'spring', 'summer'],
         hs : ['myFadeIn','myFadeOut','myFadeOut','myFadeOut'],
         step:0,
@@ -113,17 +114,21 @@ class Test2 extends Component {
                 // },100);
                 this.setState({
                     step: step,
+                    hs : classes
                 });
             }
             else {
-                classes[0] = 'myFadeIn';
-                classes[3] = 'myFadeOut';
+                classes[0] = 'myFadeIn2';
+                classes[3] = 'myFadeOut2';
                 // setTimeout(function(){
                 //     classes[3] = 'myFadeOut';
                 // },200);
+                console.log(this.state.hs);
                 this.setState({
                     step: 0,
+                    hs : classes
                 });
+                console.log(this.state.hs);
             }
         },8000);
     }
