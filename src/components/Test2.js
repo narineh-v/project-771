@@ -130,7 +130,7 @@ class Test2 extends Component {
                 });
                 console.log(this.state.hs);
             }
-        },8000);
+        },7000);
     }
 
     componentWillUnmount() {
