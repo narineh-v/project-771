@@ -66,6 +66,11 @@ class Test2 extends Component {
       //window.removeEventListener("dblclick", (e) => this.allowZoom(e));
     }
 
+    calcVH() {
+      var vH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      console.log(vH);
+      document.getElementsByClassName("wrapper").setAttribute("style", "height:" + vH + "px;");
+    }
     isTouchDevice() {
        var el = document.createElement('div');
        el.setAttribute('ongesturestart', 'return;'); // or try "ontouchstart"
@@ -78,6 +83,7 @@ class Test2 extends Component {
       //var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       () => this.updateDimensions();
       (e) => this.allowZoom(e);
+      () => this.calcVH();
 
     //(e) => this.touchZoom(e);
       // if ("ontouchstart" in document.documentElement) {
@@ -94,6 +100,7 @@ class Test2 extends Component {
       window.addEventListener("resize", () => this.updateDimensions());
       window.addEventListener("dblclick", (e) => this.allowZoom(e));
       window.addEventListener("touchend", (e) => this.touchZoom(e));
+      window.addEventListener('onorientationchange', () => this.calcVH(), true);
       // if ("ontouchstart" in document.documentElement) {
       //  // return false;
       //  console.log('no')
@@ -195,7 +202,7 @@ class Test2 extends Component {
 
                                 {/*----------- Content -----------*/}
                                 <div className="content">
-                                    <div className="main-container"  >
+                                    <div className="main-container">
                                         <img src={require(`../assets/img/${season}/foreground.jpg`)}
                                              className="foreground-image"
                                              alt="foreground"
@@ -213,7 +220,6 @@ class Test2 extends Component {
                                             </a>
                                         </div>
                                         {/*----------- Boy End-----------*/}
-
                                         <img src={require('../assets/img/icons/plus-minus-icon.png')} className = "plus-minus-icon" alt="plus-minus-icon" onClick={this.togglePlay}/>
                                     </div>
                                 </div>
