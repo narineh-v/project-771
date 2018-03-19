@@ -157,18 +157,6 @@ body {
   }
 }
 
-.class_season0{
-  opacity: 1;
-}
-.class_season1{
-  opacity: 0;
-}
-.class_season2{
-  opacity: 0;
-}
-.class_season3{
-  opacity: 0;
-}
 /**************** Content End ***************/
 /**************** Autumn ***************/
 .wrapper {
@@ -181,17 +169,6 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  //padding: 5%;
-  //overflow-y: hidden;
-  // -webkit-animation: fadein 4s ease-in; /* Safari, Chrome and Opera > 12.1 */ /* Firefox < 16 */ /* Internet Explorer */ /* Opera < 12.1 */
-  // animation: fadein 4s ease-in;
-
-
-//   animation-name: fadeIn;
-// animation-timing-function: ease-in;
-// animation-iteration-count: infinite;
-// animation-duration: 6s;
-// animation-direction: alternate;
 
   &.myFadeOut{
     visibility: collapse;
@@ -218,173 +195,21 @@ body {
   }
 
   &.autumn {
-    //opacity: 0;
-    /*animation-name: fade1;
-    animation-duration: 5s;*/
-    //animation-iteration-count: 1;
-    //display: block;
     background-image: url(./../assets/img/background/bg-autumn.jpg);
   }
 
   &.winter {
-    /*animation-name: fade2;
-    animation-duration: 5s;*/
-    //animation-iteration-count: infinite;
-    //display: block;
     background-image: url(./../assets/img/background/bg-winter.jpg);
   }
 
   &.spring {
-    /*animation-name: fade1;
-    animation-duration: 32s;
-    animation-iteration-count: infinite;
-    display: block;*/
     background-image: url(./../assets/img/background/bg-spring.jpg);
   }
   &.summer {
-    /*animation-name: fade2;
-    animation-duration: 32s;
-    animation-iteration-count: infinite;
-    display: block;*/
     background-image: url(./../assets/img/background/bg-summer.jpg);
-    // -webkit-transition: all 7s ease-in, all 1s ease-out;
-    // transition: all 7s ease-in, all 1s ease-out;
-  }
-
-}
-
-
-@keyframes fade1
-{
-  0%   {opacity:1}
-  100% { opacity: 0}
-  /*66.666% { opacity: 0}
-  100% { opacity: 1}*/
-}
-@keyframes fade2
-{
-  0%   {opacity:0}
-  33.333% { opacity: 1}
-  /*66.666% { opacity: 0 }
-  100% { opacity: 0}*/
-}
-@keyframes fade3
-{
-  0%   {opacity:0}
-  33.333% { opacity: 0}
-  66.666% { opacity: 1}
-  100% { opacity: 0}
-}
-
-@keyframes fade4
-{
-  0%   {opacity:0}
-  33.333% { opacity: 1}
-  66.666% { opacity: 0}
-  100% { opacity: 1}
-}
-
-@keyframes fadein {
-  0% {
-  opacity:0.45;
-  }
-  45% {
-  opacity:0.5;
-  }
-  55% {
-  opacity:0.7;
-  }
-  100% {
-  opacity: 0.8;
   }
 }
 
-.fadeOut {
-// animation-name: fadeOut;
-// animation-timing-function: ease-in-out;
-// animation-iteration-count: infinite;
-// animation-duration: 5s;
-// animation-direction: alternate;
-
-
-  // animation: fadeOut 4s ease-out;
-  //  -webkit-animation: fadeOut 4s ease-out;
-
-  // animation: fadeOut 3.5s ease-out;
-  //  -webkit-animation: fadeOut 3.5s ease-out;
-  // animation: fadeOut 3.5s ease-out;
-  //  -webkit-animation: fadeOut 3.5s ease-out;
-
-}
-@keyframes fadeIn {
-  // 0% { opacity: 0.55}
-  // 50% {opacity: 0.53}
-  // 60% {opacity: 0.5}
-
-
-  // 0% { opacity: 0.55}
-  // 50% {opacity: 0.57}
-  // 70% {opacity: 0.6}
-  0% {
-  opacity:0.5;
-  }
-  45% {
-  opacity:0.6;
-  }
-  55% {
-  opacity:0.8;
-  }
-  100% {
-  opacity:1;
-  }
-
-  // from{opacity: 0.5}
-  // to{opacity: 0.6}
-}
-
-@keyframes fadeOut {
-  // 0% {opacity: 0.65}
-  // 50% {opacity: 0.62}
-  // 60% {opacity: 0.6}
-
-// from {opacity: 1}
-// to {opacity: 0.53}
-
-  // 0% {opacity: 0.6}
-  // 50% {opacity: 0.57}
-  // 70% {opacity: 0.55}
-0% {
-opacity:1;
-}
-45% {
-opacity:0.8;
-}
-55% {
-opacity:0.6;
-}
-100% {
-opacity:0;
-}
-
-  // 0% {opacity: 0.7}
-  // 50% {opacity: 0.67}
-  // 70% {opacity: 0.65}
-
-
-  // 70% {opacity: 1}
-  // 50% {opacity: 0.7}
-  // 40% {opacity: 0.6}
-  //100%   { opacity: 0.55}
-}
-/* Firefox < 16 */
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadeOut {
-  //0% {opacity: 0.6}
-  // 70% {opacity: 1}
-  // 50% {opacity: 0.7}
-  // 40% {opacity: 0.6}
-  //100%   { opacity: 0.55}
-}
 /************** Autumn End *************/
 
 @media (max-height: 420px) {
@@ -402,6 +227,5 @@ opacity:0;
   height: 50px;
   width: 50px;
   background: black;
-  /* z-index: 1000; */
   position: relative;
 }

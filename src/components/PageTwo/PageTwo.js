@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './PageTwo.scss';
+
 class PageTwo extends Component {
   render(){
     return (
@@ -11,6 +13,14 @@ class PageTwo extends Component {
                        className="foreground-image"
                        alt="foreground"
                        />
+                   <a href="https://www.facebook.com/"
+                      target="_blank" className="about"
+                      rel="">
+                   </a>
+                   <a href="https://www.facebook.com/"
+                      target="_blank" className="facebook"
+                      rel="">
+                   </a>
               </div>
           </div>
           {/*----------- Content End -----------*/}

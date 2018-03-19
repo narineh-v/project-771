@@ -41,11 +41,11 @@ class PageOne extends Component {
       transform: `translate(${this.props.x}, ${this.props.x}) scale(${this.props.zoom})`
     };
     return (
-      <Aux>{this.renderRedirect()}
+      <Aux>
       {this.props.seasons.map((season, index) => {
         return (
             <div className={["wrapper", season, this.props.toggleFade[index]].join(' ')} key = {index} style = {zoomStyles2}>
-
+              {this.renderRedirect()}
                 {/*----------- Content -----------*/}
                 <div className="content">
                     <div className="main-container">
