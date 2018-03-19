@@ -17,18 +17,19 @@ class PageOne extends Component {
     //this.props.history.push("/page_two");
   }
 
-  renderRedirect = () => {
+  renderRedirect = (season) => {
     if (this.state.redirect) {
-      return <Redirect to='/page_two'/>
+      console.log(season)
+      return <Redirect to='/page_two' name = {season}/>
     }
   }
 
  componentWillMount() {
-   (e) => this.renderRedirect(e);
+   //(e) => this.renderRedirect(e);
  }
 
   componentDidMount() {
-    window.addEventListener("click", (e) => {this.setRedirect(e)});
+    //window.addEventListener("click", (e) => {this.setRedirect(e)});
   }
 
 
@@ -44,8 +45,8 @@ class PageOne extends Component {
       <Aux>
       {this.props.seasons.map((season, index) => {
         return (
-            <div className={["wrapper", season, this.props.toggleFade[index]].join(' ')} key = {index} style = {zoomStyles2}>
-              {this.renderRedirect()}
+            <div className={["wrapper", season, this.props.toggleFade[index]].join(' ')} key = {index} style = {zoomStyles2} season = {season} onClick = {(e) => this.setRedirect(e)}>
+              {this.renderRedirect(season)}
                 {/*----------- Content -----------*/}
                 <div className="content">
                     <div className="main-container">
