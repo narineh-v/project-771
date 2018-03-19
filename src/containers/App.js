@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Router, Route, IndexRoute} from 'react-router';
-import { Route , BrowserRouter  } from 'react-router-dom';
+import { Route , BrowserRouter as Router, Link, NavLink} from 'react-router-dom';
 import { createBrowserHistory as createHistory } from "history";
 
 
@@ -9,9 +9,12 @@ import './App.scss';
 
 // Components
 
-import Seasons from './Seasons';
-import SeasonV from '../components/SeasonV';
-import Test2 from '../components/Test2';
+
+import Seasons from '../components/Seasons';
+import PageOne from '../components/PageOne/PageOne';
+import PageTwo from '../components/PageTwo/PageTwo';
+
+import Aux from '../hoc/Auxx';
 
 
 //const history = createBrowserHistory();
@@ -19,9 +22,8 @@ const history = createHistory(this.props);
 class App extends Component {
   state = {
     components: [
-      {path: '/', name: Test2},
-      {path: '/test', name: SeasonV},
-      {path: '/Test2', name: Test2}
+      {path: '/', name: Seasons},
+      {path: '/page_two', name: PageTwo}
     ]
   };
 
@@ -32,19 +34,21 @@ class App extends Component {
   render() {
       let components = this.state.components;
       let routes = (
-        <div>
+        <Aux>
           {components.map((component,key) => {
-            return <Route exact key = {key} path = {component.path} component = {component.name}/>;
+            return (
+              <Route exact key = {key} path = {component.path} component = {component.name}/>
+            )
           })}
-        </div>
+        </Aux>
       )
 
     return (
-      <BrowserRouter history={this.history} >
-        <div>
+      <Router history={this.history} >
+        <Aux>
          {routes}
-        </div>
-      </BrowserRouter>
+        </Aux>
+      </Router>
     );
   }
 }
